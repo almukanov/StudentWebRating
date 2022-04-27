@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: jrus
@@ -23,9 +24,10 @@
     <c:forEach var="students" items="${allStudents}">
 
         <tr>
-        <td>${students.firstName}</td>
-        <td>${students.lastName}</td>
-        <td>${students.grade.gradeNumber}</td>
+        <td>${students.student.firstName}</td>
+        <td>${students.student.lastName}</td>
+        <td>${students.student.grade.gradeNumber}</td>
+        <td>${students.rating}</td>
 
 
         </tr>
@@ -39,5 +41,11 @@
 <br>
 <br>
 <input type="button" value="Get all ratings" onclick="window.location.href='/get-all-ratings'">
+<br>
+<br>
+
+
+
+
 </body>
 </html>

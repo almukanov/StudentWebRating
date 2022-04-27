@@ -23,12 +23,12 @@ public class StudentDaoImpl implements StudentDao{
 
 
 
-    public List<Students> findAll() {
+    public List<Rating> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        Query<Students> query = session.createQuery("FROM Students", Students.class);
+        Query<Rating> query = session.createQuery("FROM Rating", Rating.class);
 
       // return GradeDao.HibernateUtil.getSessionFactory().openSession().createQuery("FROM  Students s WHERE s.grade.gradeNumber  = "+"'"+gr+"'").list();
-        List<Students> students = query.getResultList();
+        List<Rating> students = query.getResultList();
         return students;
 
     }
@@ -43,9 +43,11 @@ public class StudentDaoImpl implements StudentDao{
     }
 
     @Override
-    public void saveStudent(Students student) {
+    public void saveStudent(Students st) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(student);
+        session.save(st);
+        Query query = session.createSQLQuery("INSERT INTO rating (student,rating) VALUES ("+st.getId()+",0)");
+        query.executeUpdate();
     }
 
     @Override
@@ -62,6 +64,15 @@ public class StudentDaoImpl implements StudentDao{
         Query<Grade> query = session.createQuery("FROM Grade", Grade.class);
         List<Grade> grades = query.getResultList();
         return grades;
+    }
+
+    @Override
+    public List<Rating> findAllByGrade(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Rating> query = session.createQuery("FROM Rating as r  WHERE r.student.grade.id = :id");
+        query.setParameter("id", id);
+        List<Rating> ratings = query.getResultList();
+        return ratings;
     }
 
 

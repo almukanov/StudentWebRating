@@ -25,7 +25,7 @@ public class Students {
 
 
 
-    @ManyToOne
+    @ManyToOne ()
     @JoinColumn(name = "grade")
     private Grade grade;
 

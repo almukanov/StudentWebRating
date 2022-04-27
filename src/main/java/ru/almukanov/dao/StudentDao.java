@@ -9,7 +9,7 @@ import ru.almukanov.entity.Students;
 import java.util.List;
 @Repository
 public interface StudentDao {
-    List<Students> findAll();
+    List<Rating> findAll();
     Students findStudentById(Students students);
 
     void saveStudent(Students student);
@@ -18,4 +18,6 @@ public interface StudentDao {
 
 
     List<Grade> findGrade();
+
+    List<Rating> findAllByGrade(Long id);
 }

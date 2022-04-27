@@ -3,9 +3,7 @@ package ru.almukanov.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.almukanov.entity.Grade;
 import ru.almukanov.entity.Rating;
 import ru.almukanov.entity.Students;
@@ -21,8 +19,10 @@ public class MainController {
 
     @GetMapping("/")
     public String allStudents(Model model){
-     List<Students> allStudents =  studetnService.findAll();
+     List<Rating> allStudents =  studetnService.findAll();
      model.addAttribute("allStudents", allStudents);
+        List<Grade> grades = studetnService.findGrade();
+        model.addAttribute("grade",grades);
         return "index";
     }
     @GetMapping("/add-new-student")
@@ -47,4 +47,13 @@ public class MainController {
         model.addAttribute("ratings", ratings);
         return "GetAllRatings";
     }
+
+    @GetMapping("get-All-By-Grade/{id}")
+    public String getAllByGrade(@PathVariable Long id, Model model){
+        List<Rating> students = studetnService.findAllByGrade(id);
+        model.addAttribute("students", students);
+        return "getAllByGrade";
+    }
+
+
 }

@@ -21,7 +21,7 @@ public class StudentsServiceImpl implements StudetnService{
 
     @Transactional
     @Override
-    public List<Students> findAll() {
+    public List<Rating> findAll() {
         return studentDao.findAll();
     }
 
@@ -41,6 +41,12 @@ public class StudentsServiceImpl implements StudetnService{
     @Transactional
     public List<Grade> findGrade() {
         return studentDao.findGrade();
+    }
+
+    @Override
+    @Transactional
+    public List<Rating> findAllByGrade(Long id) {
+        return studentDao.findAllByGrade(id);
     }
 
 
