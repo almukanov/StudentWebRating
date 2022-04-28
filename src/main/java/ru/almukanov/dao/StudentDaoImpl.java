@@ -89,5 +89,12 @@ public class StudentDaoImpl implements StudentDao{
         return student;
     }
 
+    @Override
+    public double findRatingById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Rating rating = session.get(Rating.class, id);
+        return rating.getRating();
+    }
+
 
 }

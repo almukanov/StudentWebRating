@@ -24,4 +24,6 @@ public interface StudentDao {
     void saveRating(double rating, int id);
 
     Students findStudentByID(int id);
+
+    double findRatingById(int id);
 }

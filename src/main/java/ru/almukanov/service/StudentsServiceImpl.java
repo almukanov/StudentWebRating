@@ -8,6 +8,7 @@ import ru.almukanov.entity.Grade;
 import ru.almukanov.entity.Rating;
 import ru.almukanov.entity.Students;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Service
@@ -52,11 +53,17 @@ public class StudentsServiceImpl implements StudetnService{
     @Override
     @Transactional
     public void saveRating(double rating, int id) {
+        double rate = studentDao.findRatingById(id);
+        rating += rate;
         studentDao.saveRating(rating, id);
     }
 
     public double calculatingRate( double a, double b, double c){
-        return (a*1+b*1.5+c*2)/3;
+
+        double rate = (double)(a+b*2+c*2)/3;
+        rate = Double.parseDouble(new DecimalFormat("#0.00").format(rate).replace(",","."));
+
+        return rate;
     }
 
     @Override
