@@ -13,12 +13,16 @@
     <title>Title</title>
 </head>
 <body>
+<input type="button" value="Main page" onclick="window.location.href='/'">
 <form:form  action="/calculate-rating" method="get" >
     <table>
         <tr>
             <th>First name</th>
             <th>Last name</th>
             <th>Grade</th>
+            <th>Answer activity</th>
+            <th>Self activity</th>
+            <th>Question activity</th>
 
         </tr>
 
@@ -29,15 +33,17 @@
                 <td>${profileOfStudent.lastName}</td>
                 <td>${profileOfStudent.grade.gradeNumber}</td>
 
-                <td><input type="hidden" name="s_id" value="${profileOfStudent.id}"></td>
-                <td><input type="number" name="a" /></td>
-                <td><input type="number" name="b" /></td>
-                <td><input type="number" name="c" /></td>
+              <input type="hidden" name="s_id" value="${profileOfStudent.id}">
+                <td><input type="number" name="answerActivity" /></td>
+                <td><input type="number" name="selfActivity" /></td>
+                <td><input type="number" name="questionfActivity" /></td>
                 <td><input type="submit" value="add new rating"></td>
             </tr>
 
 
     </table>
 </form:form>
+<br>
+<input type="button" onclick="history.back();" value="Back"/>
 </body>
 </html>

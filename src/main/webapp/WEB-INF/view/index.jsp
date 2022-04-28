@@ -12,9 +12,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Main page</title>
 </head>
 <body>
+<select onchange="window.location.href=this.options[this.selectedIndex].value">
+    <option selected>Chose a grade</option>
+    <d:forEach var="grades" items="${grade}">
+        <option VALUE="get-All-By-Grade/${grades.id}">${grades.gradeNumber}</option>
+    </d:forEach>
+</select>
 <table>
     <tr>
         <th>First name</th>
@@ -44,11 +50,7 @@
 <br>
 
 
-<select onchange="window.location.href=this.options[this.selectedIndex].value">
-    <d:forEach var="grades" items="${grade}">
-    <option VALUE="get-All-By-Grade/${grades.id}">${grades.gradeNumber}</option>
-    </d:forEach>
-</select>
+
 
 
 

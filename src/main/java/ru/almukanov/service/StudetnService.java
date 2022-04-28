@@ -17,7 +17,7 @@ public interface StudetnService {
     List<Rating> findAllByGrade(Long id);
 
     void saveRating(double rating, int id);
-    public double calculatingRate( double a, double b, double c);
+    public double calculatingRate( double answerActivity, double selfActivity, double questionfActivity);
 
 
     Students findStudentByID(int id);

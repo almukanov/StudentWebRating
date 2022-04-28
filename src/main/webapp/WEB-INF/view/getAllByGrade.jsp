@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jrus
@@ -13,6 +14,13 @@
     <title>Title</title>
 </head>
 <body>
+<input type="button" value="Main page" onclick="window.location.href='/'">
+<select onchange="window.location.href=this.options[this.selectedIndex].value">
+    <option selected>Chose a grade</option>
+    <d:forEach var="grades" items="${grade}">
+        <option VALUE="/get-All-By-Grade/${grades.id}">${grades.gradeNumber}</option>
+    </d:forEach>
+</select>
 <form:form  action="/calculate-rating" method="get" >
 <table>
     <tr>
@@ -37,5 +45,10 @@
 
 </table>
 </form:form>
+
+
+
+<br>
+    <input type="button" onclick="history.back();" value="Back"/>
 </body>
 </html>

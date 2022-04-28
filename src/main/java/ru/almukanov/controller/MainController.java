@@ -9,9 +9,7 @@ import ru.almukanov.entity.Rating;
 import ru.almukanov.entity.Students;
 import ru.almukanov.service.StudetnService;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class MainController {
@@ -47,6 +45,7 @@ public class MainController {
     public String getAllRatings(Model model){
         List<Rating> ratings = studetnService.findRating();
         model.addAttribute("ratings", ratings);
+
         return "GetAllRatings";
     }
 
@@ -54,6 +53,8 @@ public class MainController {
     public String getAllByGrade(@PathVariable Long id, Model model){
         List<Rating> students = studetnService.findAllByGrade(id);
         model.addAttribute("students", students);
+        List<Grade> grades = studetnService.findGrade();
+        model.addAttribute("grade",grades);
 
         return "getAllByGrade";
     }
@@ -65,12 +66,12 @@ public class MainController {
         return "profile";
     }
     @GetMapping("calculate-rating")
-    public String calculate(@RequestParam(value="a") double a
-            ,@RequestParam(value="b") double b
-            ,@RequestParam(value="c") double c
+    public String calculate(@RequestParam(value= "answerActivity") double answerActivity
+            ,@RequestParam(value= "selfActivity") double selfActivity
+            ,@RequestParam(value= "questionfActivity") double questionfActivity
             ,@RequestParam(value = "s_id") int s_id){
 
-        double rate = studetnService.calculatingRate(a,b,c);
+        double rate = studetnService.calculatingRate(answerActivity, selfActivity, questionfActivity);
         studetnService.saveRating(rate, s_id);
            return "redirect: /";
     }

@@ -13,7 +13,7 @@
     <title>Student info</title>
 </head>
 <body>
-
+<input type="button" value="Main page" onclick="window.location.href='/'">
 
 
 <form:form action = "saveStudent" modelAttribute="student" method="post">
@@ -31,5 +31,7 @@
     <br><br>
     <input type="submit" value="ADD ">
 </form:form>
+<br>
+<input type="button" onclick="history.back();" value="Back"/>
 </body>
 </html>

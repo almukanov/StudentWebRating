@@ -58,9 +58,9 @@ public class StudentsServiceImpl implements StudetnService{
         studentDao.saveRating(rating, id);
     }
 
-    public double calculatingRate( double a, double b, double c){
+    public double calculatingRate( double answerActivity, double selfActivity, double questionfActivity){
 
-        double rate = (double)(a+b*2+c*2)/3;
+        double rate = (double)(answerActivity+selfActivity*2+questionfActivity*2)/3;
         rate = Double.parseDouble(new DecimalFormat("#0.00").format(rate).replace(",","."));
 
         return rate;
