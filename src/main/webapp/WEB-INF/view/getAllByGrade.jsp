@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: jrus
@@ -12,6 +13,7 @@
     <title>Title</title>
 </head>
 <body>
+<form:form  action="/calculate-rating" method="get" >
 <table>
     <tr>
         <th>First name</th>
@@ -27,12 +29,13 @@
             <td>${student.student.lastName}</td>
             <td>${student.student.grade.gradeNumber}</td>
             <td>${student.rating}</td>
-
+            <td><input type="button" value="Open a profile" onclick="window.location.href='/profile/${student.student.id}'">
 
         </tr>
 
     </c:forEach>
 
 </table>
+</form:form>
 </body>
 </html>

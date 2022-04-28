@@ -20,4 +20,8 @@ public interface StudentDao {
     List<Grade> findGrade();
 
     List<Rating> findAllByGrade(Long id);
+
+    void saveRating(double rating, int id);
+
+    Students findStudentByID(int id);
 }

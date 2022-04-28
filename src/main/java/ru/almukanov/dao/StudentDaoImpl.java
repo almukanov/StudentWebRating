@@ -75,5 +75,19 @@ public class StudentDaoImpl implements StudentDao{
         return ratings;
     }
 
+    @Override
+    public void saveRating(double rating, int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createSQLQuery("UPDATE rating SET rating= "+rating+" where student="+id);
+        query.executeUpdate();
+    }
+
+    @Override
+    public Students findStudentByID(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Students student = session.get(Students.class, id);
+        return student;
+    }
+
 
 }

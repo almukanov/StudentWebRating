@@ -49,5 +49,21 @@ public class StudentsServiceImpl implements StudetnService{
         return studentDao.findAllByGrade(id);
     }
 
+    @Override
+    @Transactional
+    public void saveRating(double rating, int id) {
+        studentDao.saveRating(rating, id);
+    }
+
+    public double calculatingRate( double a, double b, double c){
+        return (a*1+b*1.5+c*2)/3;
+    }
+
+    @Override
+    @Transactional
+    public Students findStudentByID(int id) {
+        return studentDao.findStudentByID(id);
+    }
+
 
 }

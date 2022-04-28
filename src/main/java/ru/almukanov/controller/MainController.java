@@ -9,7 +9,9 @@ import ru.almukanov.entity.Rating;
 import ru.almukanov.entity.Students;
 import ru.almukanov.service.StudetnService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MainController {
@@ -52,7 +54,25 @@ public class MainController {
     public String getAllByGrade(@PathVariable Long id, Model model){
         List<Rating> students = studetnService.findAllByGrade(id);
         model.addAttribute("students", students);
+
         return "getAllByGrade";
+    }
+
+    @GetMapping("profile/{id}")
+    public String profile(@PathVariable("id") int id, Model model){
+        Students students= studetnService.findStudentByID(id);
+        model.addAttribute("profileOfStudent", students);
+        return "profile";
+    }
+    @GetMapping("calculate-rating")
+    public String calculate(@RequestParam(value="a") double a
+            ,@RequestParam(value="b") double b
+            ,@RequestParam(value="c") double c
+            ,@RequestParam(value = "s_id") int s_id){
+
+        double rate = studetnService.calculatingRate(a,b,c);
+        studetnService.saveRating(rate, s_id);
+           return "redirect: /";
     }
 
 

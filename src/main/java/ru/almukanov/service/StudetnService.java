@@ -15,4 +15,10 @@ public interface StudetnService {
     List<Grade> findGrade();
 
     List<Rating> findAllByGrade(Long id);
+
+    void saveRating(double rating, int id);
+    public double calculatingRate( double a, double b, double c);
+
+
+    Students findStudentByID(int id);
 }
