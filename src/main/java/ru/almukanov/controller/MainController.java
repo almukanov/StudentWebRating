@@ -40,7 +40,7 @@ public class MainController {
         studetnService.saveStudent(student);
         return "redirect:/";
     }
-
+/*
     @GetMapping("/get-all-ratings")
     public String getAllRatings(Model model){
         List<Rating> ratings = studetnService.findRating();
@@ -49,6 +49,8 @@ public class MainController {
         return "GetAllRatings";
     }
 
+
+ */
     @GetMapping("get-All-By-Grade/{id}")
     public String getAllByGrade(@PathVariable Long id, Model model){
         List<Rating> students = studetnService.findAllByGrade(id);
