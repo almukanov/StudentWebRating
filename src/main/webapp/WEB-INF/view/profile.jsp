@@ -33,7 +33,8 @@
                 <td>${profileOfStudent.lastName}</td>
                 <td>${profileOfStudent.grade.gradeNumber}</td>
 
-              <input type="hidden" name="s_id" value="${profileOfStudent.id}">
+              <input type="hidden" name="s_id" value="${profileOfStudent.id}" />
+              <input type="hidden" name="g_id" value="${profileOfStudent.grade.id}" />
                 <td><input type="number" name="answerActivity" /></td>
                 <td><input type="number" name="selfActivity" /></td>
                 <td><input type="number" name="questionfActivity" /></td>

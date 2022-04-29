@@ -69,11 +69,11 @@ public class MainController {
     public String calculate(@RequestParam(value= "answerActivity") double answerActivity
             ,@RequestParam(value= "selfActivity") double selfActivity
             ,@RequestParam(value= "questionfActivity") double questionfActivity
-            ,@RequestParam(value = "s_id") int s_id){
+            ,@RequestParam(value = "s_id") int s_id, @RequestParam(value = "g_id") int g_id){
 
         double rate = studetnService.calculatingRate(answerActivity, selfActivity, questionfActivity);
         studetnService.saveRating(rate, s_id);
-           return "redirect: /";
+           return "redirect: get-All-By-Grade/"+g_id;
     }
 
 
