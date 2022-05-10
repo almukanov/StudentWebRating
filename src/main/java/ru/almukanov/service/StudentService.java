@@ -6,7 +6,7 @@ import ru.almukanov.entity.Students;
 
 import java.util.List;
 
-public interface StudetnService {
+public interface StudentService {
     List<Rating> findAll();
     void saveStudent(Students student);
 

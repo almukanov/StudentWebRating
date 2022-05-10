@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.*;
 import ru.almukanov.entity.Grade;
 import ru.almukanov.entity.Rating;
 import ru.almukanov.entity.Students;
-import ru.almukanov.service.StudetnService;
+import ru.almukanov.service.StudentService;
 
 import java.util.List;
 
 @Controller
 public class MainController {
     @Autowired
-    private StudetnService studetnService;
+    private StudentService studetnService;
 
 
     @GetMapping("/")

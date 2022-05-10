@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 @Service
-public class StudentsServiceImpl implements StudetnService{
+public class StudentsServiceImpl implements StudentService {
     private StudentDao studentDao;
     @Autowired
     public StudentsServiceImpl(StudentDao studentDao) {
