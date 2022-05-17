@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class CalculateRate {
     double answerActivity;
 
-    public CalculateRate() {
-    }
-
     double selfActivity;
     double questionActivity;
 
@@ -34,6 +31,8 @@ public class CalculateRate {
 
     public void setQuestionActivity(double questionActivity) {
         this.questionActivity = questionActivity;
+    }
+    public CalculateRate() {
     }
 
     public CalculateRate(double answerActivity, double selfActivity, double questionActivity) {

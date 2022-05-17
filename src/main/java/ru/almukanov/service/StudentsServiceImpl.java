@@ -58,7 +58,10 @@ public class StudentsServiceImpl implements StudentService {
         studentDao.saveRating(rating, id);
     }
 
-    public double calculatingRate( double answerActivity, double selfActivity, double questionfActivity){
+    public StudentsServiceImpl() {
+    }
+
+    public double calculatingRate(double answerActivity, double selfActivity, double questionfActivity){
 
         double rate = (double)(answerActivity+selfActivity*2+questionfActivity*2)/3;
         rate = Double.parseDouble(new DecimalFormat("#0.00").format(rate).replace(",","."));
